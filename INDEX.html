@@ -1,24 +1,22 @@
 <!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Best Online Fast Food Delivery - EasyEat</title>
-
-    
-    <meta name="description" content="EasyEat offers the best online fast food delivery service. Order fast food online and enjoy quick food delivery at your doorstep.">
-    <meta name="keywords" content="online fast food, fast food delivery, order fast food, best fast food, quick food delivery">
-    <meta name="author" content="EasyEat">
-    <meta property="og:title" content="Best Online Fast Food Delivery - EasyEat">
-    <meta property="og:description" content="Order your favorite fast food online with EasyEat. We offer the fastest delivery and the best variety of food choices.">
-    <meta property="og:image" content="IMAGES/LOGO.png">
-    <meta property="og:url" content="https://www.easyeat.com">
-
-    <link rel="shortcut icon" href="IMAGES/LOGO.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  </head>
-  <style>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Best Online Fast Food Delivery - EasyEat</title>
+<meta content="EasyEat offers the best online fast food delivery service. Order fast food online and enjoy quick food delivery at your doorstep." name="description"/>
+<meta content="online fast food, fast food delivery, order fast food, best fast food, quick food delivery" name="keywords"/>
+<meta content="EasyEat" name="author"/>
+<meta content="Best Online Fast Food Delivery - EasyEat" property="og:title"/>
+<meta content="Order your favorite fast food online with EasyEat. We offer the fastest delivery and the best variety of food choices." property="og:description"/>
+<meta content="IMAGES/LOGO.png" property="og:image"/>
+<meta content="https://www.easyeat.com" property="og:url"/>
+<link href="IMAGES/LOGO.png" rel="shortcut icon" type="image/x-icon"/>
+<link href="css/bootstrap.min.css" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" referrerpolicy="no-referrer" rel="stylesheet">
+</link></head>
+<style>
   
 
 
@@ -470,188 +468,198 @@
   }
 }
 
+
+.cart-icon {
+  position: relative;
+  margin-left: 15px;
+  margin-right: 10px;
+  font-size: 1.6rem;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.navbar .cart-icon {
+  order: 3;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: #ffc107;
+  color: black;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
 </style>
-  <body style="background-color: black;">
-    <!-- Keywords for SEO: online fast food, fast food delivery, order fast food, best fast food, quick food delivery -->
-    <div style="height: 20px;" class="marque" content="easyeat" >
-      <marquee style="background-color: red;color: white;font-family: 'Franklin Gothic Medium', 'Arialc Narrow', Arial, sans-serif;padding-bottom: 10px;word-spacing: 10px;" behavior="scroll" direction="right">🎉 Free Delivery To All Over Uk 🎉</marquee>
-    </div>
+<body style="background-color: black;">
+<!-- Keywords for SEO: online fast food, fast food delivery, order fast food, best fast food, quick food delivery -->
+<div class="marque" content="easyeat" style="height: 20px;">
+<marquee behavior="scroll" direction="right" style="background-color: red;color: white;font-family: 'Franklin Gothic Medium', 'Arialc Narrow', Arial, sans-serif;padding-bottom: 10px;word-spacing: 10px;">🎉 Free Delivery To All Over Uk 🎉</marquee>
+</div>
 <div id="notification"></div>
-
-    <!-- nav start -->
-    <nav  class="navbar navbar-expand-lg navbar-dark position-sticky top-0" style="z-index: 1; background-color: red;">
-      <div class="container-fluid">
-        <!-- Keywords for navigation: easy navigation, fast food delivery options -->
-        <div style="padding-right: 50px;" class="img"><img src="IMAGES/LOGO.png" alt="" height="60px" content="online fast food"></div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="a" class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
-            <li class="a" class="nav-item"><a class="nav-link text-white" href="about.html">About Us</a></li>
-            <li class="a" class="nav-item"><a class="nav-link text-white" href="contact.html">Contact Us</a></li>
-            <li class="a" class="nav-item"><a class="nav-link text-white" href="feedback.html">Feedback</a></li>
-            <li class="a" class="nav-item"><a class="nav-link text-white" href="gallery.html">Gallery</a></li>
-            <li class="nav-item">
-              <a class="nav-link" href="showall.html">Show All</a>
-            </li>
-          </ul>
-          
-          <!-- Cart Icon -->
-          <div  class="cart-icon" id="cartIcon">
-            <i class="fas fa-shopping-cart"></i>
-            <span class="cart-count" id="cartCount">0</span>
-          </div>
-          
-            <!-- Cart Modal -->
-    <div class="cart-modal" id="cartModal">
-        <div class="cart-header">
-            <h3>Your Cart</h3>
-            <button  class="close-cart" id="closeCart">&times;</button>
-        </div>
-        <div id="cartItems">
-            <!-- Cart items will be inserted here -->
-        </div>
-        <div class="cart-total">
-            <span>Total:</span>
-            <span id="cartTotal">$0.00</span>
-        </div>
-        <button class="checkout-btn">Proceed to Checkout</button>
-    </div>
-    
-    <!-- Notification -->
-    <div class="notification" id="notification">Item added to cart!</div>
-
-
-          <a  href="login.html"><button class="login" class="btn btn-outline-light m-2">Login</button></a>
-        </div>
-      </div>
-    </nav>
-    <!-- nav end -->
-
-    
-    <!-- slider start -->
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" content="fast food delivery">
-      <!-- Keywords for slider: best fast food, delivery banners -->
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="IMAGES/banner 01.jpg" class="d-block w-100 img-fluid" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="IMAGES/banner 02.png" class="d-block w-100 img-fluid" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="IMAGES/banner 03.png" class="d-block w-100 img-fluid" alt="...">
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-    <!-- slider end -->
-<hr style="color: gold;">
-
-
-    <!-- cards data start -->
-    <div  class="container" content="order fasst food">
-      <div class="row m-2">
-        <div class="col">
-          <h1 style="color: #ffc107;" class="text-center">Our Products</h1>
-        </div>
-      </div>
-      <div  class="row" id="dataa">
-        <!-- Dynamic content goes here -->
-      </div>
-    </div>
-    <!-- cards data end -->
-
-
-    <!-- category section start -->
-     <h1 class="category-title">Our Categories</h1>
-
-  <div class="cards-container">
-    <div class="glassBox">
-      <div class="glassBox__imgBox">
-        <img src="IMAGES/CATEGORY 01.png" alt="Golden Shoe" />
-        <h3 class="glassBox__title">PIZZA</h3>
-      </div>
-      <button class="glassBox__button">View All</button>
-    </div>
-
-    <div class="glassBox">
-      <div class="glassBox__imgBox">
-        <img src="IMAGES/CAEGORY 2.webp" alt="Golden Shoe" />
-        <h3 class="glassBox__title">BURGER</h3>
-      </div>
-      <button class="glassBox__button">View All</button>
-    </div>
-
-    <div class="glassBox">
-      <div class="glassBox__imgBox">
-        <img src="IMAGES/category 3.png" alt="Golden Shoe" />
-        <h3 class="glassBox__title">FISH & SALAD</h3>
-      </div>
-      <button class="glassBox__button">View All</button>
-    </div>
-
-    <div class="glassBox">
-      <div class="glassBox__imgBox">
-        <img src="IMAGES/category 4.png" alt="Golden Shoe" />
-        <h3 class="glassBox__title">DESSERT</h3>
-      </div>
-      <button class="glassBox__button">View All</button>
-    </div>
-  </div>
-     <!-- category section end -->
-
-
-    <!-- information section start -->
-    <div class="container" content="best fast food">
-      <div class="row m-2">
-        <div class="col">
-          <h1 class="text-center" style="margin-top: 90px;color: #ffc107;">Product Information</h1>
-        </div>
-      </div>
-      <div class="row m-2" style="margin-top: 90px;">
-        <div class="col-md-6">
-          <img src="IMAGES/PRO 11 FISH SALAD.png" alt="" class="img-fluid">
-        </div>
-        <div class="col-md-6">
-          <h1 style="color: #ffc107;" content="best fast food">Information</h1>
-          <p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam molestiae voluptatum quaerat eum soluta eveniet, odio voluptate veniam quae voluptatibus veritatis nemo autem delectus amet magnam. Rerum aspernatur eum dolores!</p>
-        </div>
-      </div>
-    </div>
-    <!-- information section end -->
-
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container text-center">
-        <hr style="color: gold;">
-          <div class="social-icons mb-3">
-              <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-              <a href="https://www.google.com/" target="_blank"><i class="fab fa-google"></i></a>
-              <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-              <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-              <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
-          </div>
-          <p style="color: white;" class="mb-0">© 2025 Copyright: Project.com</p> 
-      </div>
-    </footer>
-
-    
+<!-- nav start -->
+<nav class="navbar navbar-expand-lg navbar-dark position-sticky top-0" style="z-index: 1; background-color: red;">
+<div class="container-fluid">
+<!-- Keywords for navigation: easy navigation, fast food delivery options -->
+<div class="img" style="padding-right: 50px;"><img alt="" content="online fast food" height="60px" src="IMAGES/LOGO.png"/></div>
+<button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<li class="nav-item"><a aria-current="page" class="nav-link active" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link text-white" href="about.html">About Us</a></li>
+<li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact Us</a></li>
+<li class="nav-item"><a class="nav-link text-white" href="feedback.html">Feedback</a></li>
+<li class="nav-item"><a class="nav-link text-white" href="gallery.html">Gallery</a></li>
+<li class="nav-item">
+<a class="nav-link" href="showall.html">Show All</a>
+</li>
+</ul>
+<!-- Cart Icon -->
+<div class="cart-icon" id="cartIcon">
+<i class="fas fa-shopping-cart"></i>
+<span class="cart-count" id="cartCount">0</span>
+</div>
+<!-- Cart Modal -->
+<div class="cart-modal" id="cartModal">
+<div class="cart-header">
+<h3>Your Cart</h3>
+<button class="close-cart" id="closeCart">×</button>
+</div>
+<div id="cartItems">
+<!-- Cart items will be inserted here -->
+</div>
+<div class="cart-total">
+<span>Total:</span>
+<span id="cartTotal">$0.00</span>
+</div>
+<button class="checkout-btn">Proceed to Checkout</button>
+</div>
+<!-- Notification -->
+<div class="notification" id="notification">Item added to cart!</div>
+<a href="login.html"><button class="btn btn-outline-light m-2">Login</button></a>
+</div>
+</div>
+</nav>
+<!-- nav end -->
+<!-- slider start -->
+<div class="carousel slide d-none d-md-block" content="fast food delivery" data-bs-ride="carousel" id="carouselExampleIndicators">
+<!-- Keywords for slider: best fast food, delivery banners -->
+<div class="carousel-indicators">
+<button aria-current="true" aria-label="Slide 1" class="active" data-bs-slide-to="0" data-bs-target="#carouselExampleIndicators" type="button"></button>
+<button aria-label="Slide 2" data-bs-slide-to="1" data-bs-target="#carouselExampleIndicators" type="button"></button>
+<button aria-label="Slide 3" data-bs-slide-to="2" data-bs-target="#carouselExampleIndicators" type="button"></button>
+</div>
+<div class="carousel-inner">
+<div class="carousel-item active">
+<img alt="..." class="d-block w-100 img-fluid" src="IMAGES/banner 01.jpg"/>
+</div>
+<div class="carousel-item">
+<img alt="..." class="d-block w-100 img-fluid" src="IMAGES/banner 02.png"/>
+</div>
+<div class="carousel-item">
+<img alt="..." class="d-block w-100 img-fluid" src="IMAGES/banner 03.png"/>
+</div>
+</div>
+<button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#carouselExampleIndicators" type="button">
+<span aria-hidden="true" class="carousel-control-prev-icon"></span>
+<span class="visually-hidden">Previous</span>
+</button>
+<button class="carousel-control-next" data-bs-slide="next" data-bs-target="#carouselExampleIndicators" type="button">
+<span aria-hidden="true" class="carousel-control-next-icon"></span>
+<span class="visually-hidden">Next</span>
+</button>
+</div><div class="d-block d-md-none"><img alt="Mobile Banner" class="img-fluid w-100" src="IMAGES/Mobile Banner.png"/></div>
+<!-- slider end -->
+<hr style="color: gold;"/>
+<!-- cards data start -->
+<div class="container" content="order fasst food">
+<div class="row m-2">
+<div class="col">
+<h1 class="text-center" style="color: #ffc107;">Our Products</h1>
+</div>
+</div>
+<div class="row" id="dataa">
+<!-- Dynamic content goes here -->
+</div>
+</div>
+<!-- cards data end -->
+<!-- category section start -->
+<h1 class="category-title">Our Categories</h1>
+<div class="cards-container">
+<div class="glassBox">
+<div class="glassBox__imgBox">
+<img alt="Golden Shoe" src="IMAGES/CATEGORY 01.png">
+<h3 class="glassBox__title">PIZZA</h3>
+</img></div>
+<button class="glassBox__button">View All</button>
+</div>
+<div class="glassBox">
+<div class="glassBox__imgBox">
+<img alt="Golden Shoe" src="IMAGES/CAEGORY 2.webp">
+<h3 class="glassBox__title">BURGER</h3>
+</img></div>
+<button class="glassBox__button">View All</button>
+</div>
+<div class="glassBox">
+<div class="glassBox__imgBox">
+<img alt="Golden Shoe" src="IMAGES/category 3.png">
+<h3 class="glassBox__title">FISH &amp; SALAD</h3>
+</img></div>
+<button class="glassBox__button">View All</button>
+</div>
+<div class="glassBox">
+<div class="glassBox__imgBox">
+<img alt="Golden Shoe" src="IMAGES/category 4.png">
+<h3 class="glassBox__title">DESSERT</h3>
+</img></div>
+<button class="glassBox__button">View All</button>
+</div>
+</div>
+<!-- category section end -->
+<!-- information section start -->
+<div class="container" content="best fast food">
+<div class="row m-2">
+<div class="col">
+<h1 class="text-center" style="margin-top: 90px;color: #ffc107;">Product Information</h1>
+</div>
+</div>
+<div class="row m-2" style="margin-top: 90px;">
+<div class="col-md-6">
+<img alt="" class="img-fluid" src="IMAGES/PRO 11 FISH SALAD.png"/>
+</div>
+<div class="col-md-6">
+<h1 content="best fast food" style="color: #ffc107;">Information</h1>
+<p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam molestiae voluptatum quaerat eum soluta eveniet, odio voluptate veniam quae voluptatibus veritatis nemo autem delectus amet magnam. Rerum aspernatur eum dolores!</p>
+</div>
+</div>
+</div>
+<!-- information section end -->
+<!-- Footer -->
+<footer class="footer">
+<div class="container text-center">
+<hr style="color: gold;"/>
+<div class="social-icons mb-3">
+<a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+<a href="https://www.google.com/" target="_blank"><i class="fab fa-google"></i></a>
+<a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+<a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+<a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+</div>
+<p class="mb-0" style="color: white;">© 2025 Copyright: Project.com</p>
+</div>
+</footer>
 <script>
   // Product Data
 const data = [
@@ -864,10 +872,7 @@ function showNotification(msg) {
 }
 
 </script>
-
-
-
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+</body>
 </html>
