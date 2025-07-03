@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Online Fast Food Delivery - EasyEat</title>
+
+    
+    <meta name="description" content="EasyEat offers the best online fast food delivery service. Order fast food online and enjoy quick food delivery at your doorstep.">
+    <meta name="keywords" content="online fast food, fast food delivery, order fast food, best fast food, quick food delivery">
+    <meta name="author" content="EasyEat">
+    <meta property="og:title" content="Best Online Fast Food Delivery - EasyEat">
+    <meta property="og:description" content="Order your favorite fast food online with EasyEat. We offer the fastest delivery and the best variety of food choices.">
+    <meta property="og:image" content="IMAGES/LOGO.png">
+    <meta property="og:url" content="https://www.easyeat.com">
+
+    <link rel="shortcut icon" href="IMAGES/LOGO.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <style>
+  
+
+
+    /* NAVBAR START  */
+    .a a:hover {
+      text-transform: uppercase;
+    }
+    .nav-link {
+      color: white !important;
+      transition: all 0.3s ease;
+    }
+    .nav-link:hover {
+      color: #ffc107 !important;
+      text-transform: uppercase;
+    }
+    /* NAVBAR END */
+
+
+    /* CARDS START */
+    .card {
+       border: 3px solid white;
+       border-radius: 15px;
+       transition: transform 0.2s, box-shadow 0.2s;
+       cursor: pointer;
+       margin-top: 30px;
+       height: 550px;
+       ox-shadow: 0 0 10px 1px black;
+       text-align: center;
+       padding-top: 30px;
+       color: white;
+        }
+    .card:hover {
+       transform: scale(1.05);
+       box-shadow: 0 0 25px 2px yellow;
+        }
+    .btn {
+       background-color: black;
+       color: white;
+       border: 1px solid white;
+        }
+    .btn:hover{
+       background-color: yellow;
+       color: black;
+       border: 1px solid black;
+        }
+    .btns {
+       background-color: black;
+       color: white;
+       height: 40px;
+       width: 70px;
+       border: 1px solid white;
+       border-radius: 10px;
+        }
+    /* CARDS END */
+   
+
+    /* LOGIN BUTTON START */
+    .login{
+       background-color: black;
+       color: white;
+       height: 43px;
+       width: 70px;
+       border: 1px solid white;
+       border-radius: 5px;
+        }
+    .login:hover{
+       transition: .5s;
+       background-color: #ffc107;
+       color: white;
+        }
+    /* LOGIN BUTTON END */
+
+
+    /* CART BUTTON FUNCATION START */
+     .cart-icon {
+       position: relative;
+       margin-left: 15px;
+       color: white;
+       font-size: 1.5rem;
+       cursor: pointer;
+        }
+      .cart-count {
+        position: absolute;
+        top: -8px;
+        right: -10px;
+        background-color: #ffc107;
+        color: black;
+        border-radius: 50%;
+        width: 22px;
+        height: 22px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.75rem;
+        font-weight: bold;     
+        }
+        /* Cart Modal */
+        .cart-modal {
+         display: none;
+         position: fixed;
+         top: 0;
+         right: 0;
+         width: 100%;
+         max-width: 450px;
+         height: 100vh;
+         background-color: white;
+         box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+         z-index: 1000;
+         overflow-y: auto;
+         padding: 20px;
+         transition: transform 0.3s ease;
+        }
+        .cart-modal.active {
+         display: block;
+         transform: translateX(0);
+        }
+        .cart-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #eee;
+        margin-bottom: 20px;
+        }
+        .close-cart {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #000;
+        }
+        .cart-item {
+        display: flex;
+        align-items: center;
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
+        }
+        .cart-item-img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-right: 15px;
+        }
+        .cart-item-details {
+        flex: 1;
+        }
+        .cart-item-title {
+        font-weight: bold;
+        margin-bottom: 5px;
+        } 
+        .cart-item-price {
+        color: #666;
+        font-size: 0.9rem;
+        }
+        .cart-item-quantity {
+        display: flex;
+        align-items: center;
+        margin: 8px 0;
+        }
+        .quantity-btn {
+        width: 30px;
+        height: 30px;
+        background-color: #000;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: flex;
+       justify-content: center;
+         align-items: center;
+        }
+        .quantity-value {
+         margin: 0 10px;
+        min-width: 20px;
+         text-align: center;
+        }
+        .remove-item {
+         background: none;
+         border: none;
+         color: #ff0000;
+         cursor: pointer;
+         font-size: 0.9rem;
+        }
+        .cart-total {
+        display: flex;
+         justify-content: space-between;
+         padding: 15px 0;
+         font-weight: bold;
+         font-size: 1.2rem;
+         border-top: 2px solid #eee;
+         margin-top: 10px;
+        }
+        .checkout-btn {
+        width: 100%;
+         padding: 12px;
+         background-color: #000;
+         color: white;
+         border: none;
+         border-radius: 8px;
+         font-weight: bold;
+         cursor: pointer;
+         transition: background-color 0.3s;
+         margin-top: 20px;
+        }
+        .checkout-btn:hover {
+        background-color: gold;
+       color: black;
+        }
+        .empty-cart {
+         text-align: center;
+         padding: 30px 0;
+        }
+       .cart-item-quantity button {
+       background-color: black;
+       color: white;
+         border: none;
+         padding: 5px 10px;
+         margin: 5px;
+         font-size: 16px;
+         cursor: pointer;
+         border-radius: 4px;     
+           }
+        /* Notification */
+        @keyframes fadeInOut {
+         0%, 100% { opacity: 0; transform: translateY(20px); }
+         10%, 90% { opacity: 1; transform: translateY(0); }
+        }
+        #notification {
+     position: fixed;
+         bottom: 20px;
+         right: 20px;
+         background-color: #000;
+         color: white;
+         padding: 12px 20px;
+         border-radius: 8px;
+         box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+         display: none;
+         z-index: 2000;
+         animation: fadeInOut 3s ease-in-out;
+        }
+
+     /* Optional Fade animation */
+      #notification.show {
+  display: block;
+  opacity: 1;
+  animation: fadeOut 2.5s forwards;
+      }
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; display: none; }
+}
+
+    /* CART BUTTON FUNCATION END */
+
+
+    /* CATEGORY SEC START */
+   * {
+  box-sizing: border-box;
+  transition: 400ms;
+}
+
+.category-title {
+  color: gold;
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 30px 0 20px 0;
+  
+
+}
+
+.cards-container {
+  display: grid;
+  gap: 15px;
+  padding: 10px;
+  width: 100%;
+  max-width: 1200px;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0 auto; /* center container horizontally */
+}
+
+/* On screens smaller than 768px, 2 cards per row */
+@media (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.glassBox {
+  background: black;
+  backdrop-filter: blur(6px);
+  border-radius: 10px;
+  border: 1px solid white;
+  border-right-color: white;
+  border-bottom-color: white;
+  padding: 10px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+.glassBox:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px 2px yellow;
+}
+
+.glassBox__imgBox {
+  width: 100%;
+  flex-shrink: 0;
+  overflow: visible;
+  text-align: center;
+}
+
+.glassBox__imgBox img {
+  width: 90%;
+  max-width: 130px;
+  height: auto;
+  display: inline-block;
+  transition: transform 0.4s ease;
+}
+
+.glassBox:hover .glassBox__imgBox img {
+  transform: translate(-10px, -20px) rotate(-15deg) scale(1.2);
+}
+
+.glassBox__title {
+  color: #FFF;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin: 20px;
+  text-align: center;
+}
+
+.glassBox__button {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.glassBox__button:hover {
+  background-color: yellow;
+  color: black;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+/* For larger desktops, make cards bigger */
+@media (min-width: 1024px) {
+  .glassBox {
+    height: 320px;
+    padding: 15px;
+  }
+  .glassBox__imgBox img {
+    max-width: 160px;
+  }
+  .glassBox__title {
+    font-size: 1.4rem;
+  }
+  .glassBox__button {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+  }
+}
+
+    /* CATEGORY SEC END */
+
+
+        /* FOOTER START */
+     .footer {
+      background-color: red;
+      color: white;
+      padding: 3rem 0;
+      position: relative;
+      top: 100px;
+    }
+    .footer a {
+      color: white;
+      transition: all 0.3s ease;
+    }
+    .footer a:hover {
+      color: #ffc107;
+    }
+    .social-icons a {
+      margin: 0 0.5rem;
+      font-size: 1.5rem;
+    }
+      /* FOOTER END */
+        
+
+      @media (max-width: 768px) {
+  .card {
+    height: 350px !important;
+    padding-top: 10px !important;
+  }
+  .card img {
+    height: 140px;
+    object-fit: contain;
+  }
+  .card-title {
+    font-size: 1rem;
+  }
+  .card-text {
+    font-size: 0.9rem;
+  }
+  .btn {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+}
+
+      
+      
+        
+  </style>
+  <body style="background-color: black;">
+    <!-- Keywords for SEO: online fast food, fast food delivery, order fast food, best fast food, quick food delivery -->
+    <div style="height: 20px;" class="marque" content="easyeat" >
+      <marquee style="background-color: red;color: white;font-family: 'Franklin Gothic Medium', 'Arialc Narrow', Arial, sans-serif;padding-bottom: 10px;word-spacing: 10px;" behavior="scroll" direction="right">🎉 Free Delivery To All Over Uk 🎉</marquee>
+    </div>
+<div id="notification"></div>
+
+    <!-- nav start -->
+    <nav  class="navbar navbar-expand-lg navbar-dark position-sticky top-0" style="z-index: 1; background-color: red;">
+      <div class="container-fluid">
+        <!-- Keywords for navigation: easy navigation, fast food delivery options -->
+        <div style="padding-right: 50px;" class="img"><img src="IMAGES/LOGO.png" alt="" height="60px" content="online fast food"></div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="a" class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+            <li class="a" class="nav-item"><a class="nav-link text-white" href="about.html">About Us</a></li>
+            <li class="a" class="nav-item"><a class="nav-link text-white" href="contact.html">Contact Us</a></li>
+            <li class="a" class="nav-item"><a class="nav-link text-white" href="feedback.html">Feedback</a></li>
+            <li class="a" class="nav-item"><a class="nav-link text-white" href="gallery.html">Gallery</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="showall.html">Show All</a>
+            </li>
+          </ul>
+          
+          <!-- Cart Icon -->
+          <div  class="cart-icon" id="cartIcon">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cartCount">0</span>
+          </div>
+          
+            <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button  class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div id="cartItems">
+            <!-- Cart items will be inserted here -->
+        </div>
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cartTotal">$0.00</span>
+        </div>
+        <button class="checkout-btn">Proceed to Checkout</button>
+    </div>
+    
+    <!-- Notification -->
+    <div class="notification" id="notification">Item added to cart!</div>
+
+
+          <a  href="login.html"><button class="login" class="btn btn-outline-light m-2">Login</button></a>
+        </div>
+      </div>
+    </nav>
+    <!-- nav end -->
+
+    
+    <!-- slider start -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" content="fast food delivery">
+      <!-- Keywords for slider: best fast food, delivery banners -->
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="IMAGES/banner 01.jpg" class="d-block w-100 img-fluid" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="IMAGES/banner 02.png" class="d-block w-100 img-fluid" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="IMAGES/banner 03.png" class="d-block w-100 img-fluid" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!-- slider end -->
+<hr style="color: gold;">
+
+
+    <!-- cards data start -->
+    <div  class="container" content="order fasst food">
+      <div class="row m-2">
+        <div class="col">
+          <h1 style="color: #ffc107;" class="text-center">Our Products</h1>
+        </div>
+      </div>
+      <div  class="row" id="dataa">
+        <!-- Dynamic content goes here -->
+      </div>
+    </div>
+    <!-- cards data end -->
+
+
+    <!-- category section start -->
+     <h1 class="category-title">Our Categories</h1>
+
+  <div class="cards-container">
+    <div class="glassBox">
+      <div class="glassBox__imgBox">
+        <img src="IMAGES/CATEGORY 01.png" alt="Golden Shoe" />
+        <h3 class="glassBox__title">PIZZA</h3>
+      </div>
+      <button class="glassBox__button">View All</button>
+    </div>
+
+    <div class="glassBox">
+      <div class="glassBox__imgBox">
+        <img src="IMAGES/CAEGORY 2.webp" alt="Golden Shoe" />
+        <h3 class="glassBox__title">BURGER</h3>
+      </div>
+      <button class="glassBox__button">View All</button>
+    </div>
+
+    <div class="glassBox">
+      <div class="glassBox__imgBox">
+        <img src="IMAGES/category 3.png" alt="Golden Shoe" />
+        <h3 class="glassBox__title">FISH & SALAD</h3>
+      </div>
+      <button class="glassBox__button">View All</button>
+    </div>
+
+    <div class="glassBox">
+      <div class="glassBox__imgBox">
+        <img src="IMAGES/category 4.png" alt="Golden Shoe" />
+        <h3 class="glassBox__title">DESSERT</h3>
+      </div>
+      <button class="glassBox__button">View All</button>
+    </div>
+  </div>
+     <!-- category section end -->
+
+
+    <!-- information section start -->
+    <div class="container" content="best fast food">
+      <div class="row m-2">
+        <div class="col">
+          <h1 class="text-center" style="margin-top: 90px;color: #ffc107;">Product Information</h1>
+        </div>
+      </div>
+      <div class="row m-2" style="margin-top: 90px;">
+        <div class="col-md-6">
+          <img src="IMAGES/PRO 11 FISH SALAD.png" alt="" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+          <h1 style="color: #ffc107;" content="best fast food">Information</h1>
+          <p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam molestiae voluptatum quaerat eum soluta eveniet, odio voluptate veniam quae voluptatibus veritatis nemo autem delectus amet magnam. Rerum aspernatur eum dolores!</p>
+        </div>
+      </div>
+    </div>
+    <!-- information section end -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container text-center">
+        <hr style="color: gold;">
+          <div class="social-icons mb-3">
+              <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.google.com/" target="_blank"><i class="fab fa-google"></i></a>
+              <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+          </div>
+          <p style="color: white;" class="mb-0">© 2025 Copyright: Project.com</p> 
+      </div>
+    </footer>
+
+    
+<script>
+  // Product Data
+const data = [
+  { img: "IMAGES/1.png", title: "FUNGI PIZZA", des: "PRICE $20" },
+  { img: "IMAGES/2.png", title: "MARINARA PIZZA", des: "PRICE $30" },
+  { img: "IMAGES/3.png", title: "MARGHERITA PIZZA", des: "PRICE $15" },
+  { img: "IMAGES/4.png", title: "HAMBURGER", des: "PRICE $25" },
+  { img: "IMAGES/5.png", title: "MARGHERITA PIZZA", des: "PRICE $19" },
+  { img: "IMAGES/6.png", title: "MILANESE PIZZA", des: "PRICE $25" },
+  { img: "IMAGES/7.png", title: "BLACK HAMBURGER", des: "PRICE $25" },
+  { img: "IMAGES/8.png", title: "MUSH BURGER", des: "PRICE $16" },
+  { img: "IMAGES/9.png", title: "PEPPERONI PIZZA", des: "PRICE $20" }
+];
+
+// DOM Elements
+const cartIcon = document.getElementById('cartIcon');
+const cartModal = document.getElementById('cartModal');
+const closeCart = document.getElementById('closeCart');
+const cartItems = document.getElementById('cartItems');
+const cartCount = document.getElementById('cartCount');
+const cartTotal = document.getElementById('cartTotal');
+const notification = document.getElementById('notification');
+const container = document.getElementById('dataa');
+
+let cart = [];
+
+// Load cart from localStorage
+function loadCart() {
+  const savedCart = localStorage.getItem('cart');
+  if (savedCart) cart = JSON.parse(savedCart);
+}
+
+// Save to localStorage
+function saveCart() {
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+// Get price from description
+function getPrice(des) {
+  const match = des.match(/\$(\d+)/);
+  return match ? parseFloat(match[1]) : 0;
+}
+
+// Add to Cart
+function addToCart(index) {
+  const product = data[index];
+  const found = cart.find(item => item.id === index);
+
+  if (found) {
+    found.quantity++;
+  } else {
+    cart.push({
+      id: index,
+      title: product.title,
+      price: getPrice(product.des),
+      img: product.img,
+      quantity: 1
+    });
+  }
+
+  saveCart();
+  updateCartUI();
+  showNotification(`${product.title} added to cart ✅`);
+}
+
+// Remove item
+function removeItem(id) {
+  cart = cart.filter(item => item.id !== id);
+  saveCart();
+  updateCartUI();
+}
+
+// Update quantity
+function updateQuantity(id, change) {
+  const item = cart.find(i => i.id === id);
+  if (item) {
+    item.quantity += change;
+    if (item.quantity <= 0) {
+      removeItem(id);
+    } else {
+      saveCart();
+      updateCartUI();
+    }        
+  }
+}
+   
+// Update Cart UI
+function updateCartUI() {
+  cartItems.innerHTML = '';
+  let total = 0;
+  let count = 0;
+
+  if (cart.length === 0) {
+    cartItems.innerHTML = `<div class="empty-cart">
+      <i class="fas fa-shopping-cart fa-3x mb-3"></i>
+      <h4>Your cart is empty</h4><p>Add some delicious items!</p>
+    </div>`;
+    cartTotal.textContent = '$0.00';
+    cartCount.textContent = '0';
+    return;
+  }
+
+  cart.forEach(item => {
+    const itemTotal = item.price * item.quantity;
+    total += itemTotal;
+    count += item.quantity;
+
+    const div = document.createElement('div');
+    div.className = 'cart-item';
+    div.innerHTML = `
+      <img src="${item.img}" class="cart-item-img" alt="${item.title}">
+      <div class="cart-item-details">
+        <div class="cart-item-title">${item.title}</div>
+        <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+        <div class="cart-item-quantity">
+          <button data-id="${item.id}" data-change="-1">-</button>
+          <span>${item.quantity}</span>
+          <button data-id="${item.id}" data-change="1">+</button>
+        </div>
+        <button class="remove-item" data-remove="${item.id}">Remove</button>
+      </div>
+      <div class="cart-item-total">$${itemTotal.toFixed(2)}</div>
+    `;
+    cartItems.appendChild(div);
+  });
+
+  cartCount.textContent = count;
+  cartTotal.textContent = `$${total.toFixed(2)}`;
+}
+
+// Generate Product Cards
+function generateProductCards() {
+  container.innerHTML = '';
+  data.forEach((item, index) => {
+    container.innerHTML += `
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div class="card" style="background-color: black;">
+          <img src="${item.img}" class="card-img-top" alt="${item.title}">
+          <div class="card-body">
+            <h5 class="card-title">${item.title}</h5>
+            <p class="card-text">${item.des}</p>
+            <button class="btn btn-dark" onclick="addToCart(${index})">Add To Cart</button>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+}
+
+// Show notification
+function showNotification(msg) {
+  notification.textContent = msg;
+  notification.style.display = 'block';
+  setTimeout(() => {
+    notification.style.display = 'none';
+  }, 2500);
+}
+
+// Modal toggle
+cartIcon.addEventListener('click', () => {
+  cartModal.classList.toggle('active');
+});
+
+closeCart.addEventListener('click', () => {
+  cartModal.classList.remove('active');
+});
+
+// Click events inside cart (for +, -, Remove)
+cartItems.addEventListener('click', e => {
+  const btn = e.target;
+  if (btn.dataset.id && btn.dataset.change) {
+    updateQuantity(parseInt(btn.dataset.id), parseInt(btn.dataset.change));
+  }
+  if (btn.dataset.remove) {
+    removeItem(parseInt(btn.dataset.remove));
+  }
+});
+
+// Prevent cart from closing when clicking inside
+cartModal.addEventListener('click', e => {
+  e.stopPropagation();
+});
+
+// Close cart when clicking outside
+document.addEventListener('click', e => {
+  if (!cartModal.contains(e.target) && !cartIcon.contains(e.target)) {
+    cartModal.classList.remove('active');
+  }
+});
+
+// Expose functions globally
+window.addToCart = addToCart;
+
+// Init
+document.addEventListener('DOMContentLoaded', () => {
+  loadCart();
+  generateProductCards();
+  updateCartUI();
+});
+
+
+function showNotification(msg) {
+  notification.textContent = msg;
+  notification.classList.add('show');
+
+  // Remove after animation ends
+  setTimeout(() => {
+    notification.classList.remove('show');
+  }, 2500);
+}
+
+</script>
+
+
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
