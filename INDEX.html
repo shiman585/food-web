@@ -289,7 +289,6 @@
   
 
 }
-
 .cards-container {
   display: grid;
   gap: 15px;
@@ -305,6 +304,7 @@
   .cards-container {
     grid-template-columns: repeat(2, 1fr);
   }
+  
 }
 
 .glassBox {
@@ -394,6 +394,189 @@
     /* CATEGORY SEC END */
 
 
+/* hot products start */
+* {
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: #0a0a0a;
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #fff;
+    min-height: 100vh;
+  }
+
+  .section {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .section-title {
+    color: #ffc107;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 15px;
+  }
+
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: #ffc107;
+  }
+
+  .items-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 25px;
+    padding: 30px 20px;
+    scroll-behavior: smooth;
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .items-container {
+      justify-content: center;
+      flex-wrap: wrap;
+      overflow-x: visible;
+    }
+  }
+
+  /* Custom scrollbar styles */
+  .items-container::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .items-container::-webkit-scrollbar-track {
+    background: #ffc107;
+    border-radius: 10px;
+  }
+
+  .items-container::-webkit-scrollbar-thumb {
+    background: #ffc107;
+    border-radius: 10px;
+  }
+
+  .items-container::-webkit-scrollbar-thumb:hover {
+    background: #e0a800;
+  }
+
+  .items-container {
+    scrollbar-width: thin;
+    scrollbar-color: #ffc107 transparent;
+  }
+
+  .food-card {
+    min-width: 160px;
+    width: 160px;
+    background: black;
+    border-radius: 20px;
+    border: 1px solid white;
+    text-align: center;
+    padding: 20px 15px;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .food-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    box-shadow: 0 10px 20px white;
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+    opacity: 0;
+  }
+
+  .food-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 20px gold;
+  }
+
+  .food-card:hover::before {
+    opacity: 1;
+    animation: shine 1.5s infinite;
+  }
+
+  @keyframes shine {
+    0% { left: -50%; top: -50%; }
+    100% { left: 150%; top: 150%; }
+  }
+
+  .food-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .food-card:hover .food-img {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .food-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    margin-top: 10px;
+    position: relative;
+    display: inline-block;
+  }
+
+  .food-name::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+  }
+
+  .food-card:hover .food-name::after {
+    width: 100%;
+  }
+
+  .food-card::after {
+    content: 'HOT';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ffcc00;
+    color: black;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+/* hot products end */
+
+
         /* FOOTER START */
      .footer {
       background-color: red;
@@ -437,7 +620,11 @@
   }
 }
 
-      
+ @media (max-width: 480px)  {
+  .marque{
+    display: none;
+  }
+ }     
       
         
   
@@ -448,6 +635,7 @@
     padding-left: 10px;
     padding-right: 10px;
   }
+  
 
   .card {
     height: auto !important;
@@ -596,7 +784,7 @@
 </div>
 <!-- cards data end -->
 <!-- category section start -->
-<h1 class="category-title">Our Categories</h1>
+<h1 style="color: #ffc107;" class="category-title">Our Categories</h1>
 <div class="cards-container">
 <div class="glassBox">
 <div class="glassBox__imgBox">
@@ -628,6 +816,40 @@
 </div>
 </div>
 <!-- category section end -->
+
+<!-- hot product start -->
+ <div class="section">
+    <h2 class="section-title">🔥 Our Hot Sellers</h2>
+    <div class="items-container">
+      <div class="food-card">
+        <img src="IMAGES/7.png" alt="BLACK HAMBURGER" class="food-img" />
+        <p class="food-name">Ham Burger</p>
+      </div>
+      <div class="food-card">
+        <img src="IMAGES/3.png" alt="Crunchy Taco" class="food-img" />
+        <p class="food-name">Veggie Pizza</p>
+      </div>
+      <div class="food-card">
+        <img src="IMAGES/PRO 10 WEEPING TIGER.png" alt="Cheesy Pizza" class="food-img" />
+        <p class="food-name">Weeping Tiger</p>
+      </div>
+      <div class="food-card">
+        <img src="IMAGES/PRO 12 GREEN CURRY.png" alt="Fresh Sandwich" class="food-img" />
+        <p class="food-name">Green Curry</p>
+      </div>
+      <div class="food-card">
+        <img src="IMAGES/8.png" alt="Crispy Chicken" class="food-img" />
+        <p class="food-name">Mac Burger</p>
+      </div>
+      <div class="food-card">
+        <img src="IMAGES/1.png" alt="Golden Fries" class="food-img" />
+        <p class="food-name">Fungi Pizza</p>
+      </div>
+    </div>
+  </div>
+
+<!-- hot product end -->
+
 <!-- information section start -->
 <div class="container" content="best fast food">
 <div class="row m-2">
