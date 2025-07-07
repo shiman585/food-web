@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Easy Eats</title> <!-- Updated title -->
+    <title>Contact Us - Easy Eats</title>
     <link rel="shortcut icon" href="IMAGES/LOGO.png" type="image/x-icon">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-
        /* NAVBAR START */
         .navbar {
             background-color: red !important;
@@ -26,7 +25,6 @@
         }
         /* NAVBAR END */
 
-
          /* LOGIN START */
         .login{
             background-color: black;
@@ -42,7 +40,6 @@
             color: white;
         }
         /* LOGIN END */
-
 
         /* CONTACT FORM START */
         .btn-outline-light:hover {
@@ -70,14 +67,12 @@
         }
         /* CONTACT FORM END */
 
-
         /* MAP START */
         .map-container iframe {
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         /* MAP END */
-
 
         /* CONTACT DETAILS START */
         .contact-details {
@@ -110,28 +105,69 @@
         }
         /* CONTACT DETAILS END */
 
+          /* FOOTER START */
+.footer {
+background-color: red;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
 
-        /* FOOTER START */
-        .footer {
-            background-color:red;
-            color: white;
-            padding: 2rem 0;
-        }
-        .footer a {
-            color: white;
-            transition: all 0.3s ease;
-        }
-        .footer a:hover {
-            color: #ffc107;
-        }
-        .social-icons a {
-            margin: 0 0.5rem;
-            font-size: 1.5rem;
-        }
-        /* FOOTER END */
-        
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+ background-color: red;
+}
 
-       
+.footer a {
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer a:hover {
+  color: #ffc107;
+  text-decoration: underline;
+}
+
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: red;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background-color: #ffc107;
+  color: red !important;
+  transform: translateY(-3px);
+}
+
+/* FOOTER END */
+
+/* VALIDATION STYLES */
+.is-invalid {
+    border-color: #dc3545 !important;
+}
+
+.invalid-feedback {
+    color: #dc3545;
+    font-size: 0.9rem;
+    margin-top: -0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.was-validated .form-control:valid {
+    border-color: #28a745;
+}
     </style>
 </head>
 <body style="background-color: black;">
@@ -173,7 +209,7 @@
     
     <!-- Contact Us Section -->
     <div class="container my-5">
-        <div  class="row text-white text-center py-5 mb-4">
+        <div class="row text-white text-center py-5 mb-4">
             <div class="col">
                 <h1 style="color: gold;" class="display-4">Contact Us</h1>
             </div>
@@ -183,43 +219,68 @@
             <div class="col-md-6">
                 <div class="contact-form">
                     <h2 style="color: white;" class="text-center mb-4">FORM</h2>
-                    <form class="row g-3" id="contactForm">
+                    <form class="row g-3 needs-validation" id="contactForm" novalidate>
                         <div class="col-12">
                             <label for="fullName" class="form-label">Full Name</label>
-                            <input type="text" class="form-control" id="fullName" placeholder="Enter Your Full Name" required pattern="[A-Za-z]{9,}" title="Use letters only, and a minimum  9 characters ">                            
+                            <input type="text" class="form-control" id="fullName" placeholder="Enter Your Full Name" required minlength="3">
+                            <div class="invalid-feedback">
+                                Please enter a valid name (at least 3 characters).
+                            </div>
                         </div>
                         <div class="col-12">
                             <label for="phoneNumber" class="form-label">Phone Number</label>
-                            <input type="number" class="form-control" id="phoneNumber" placeholder="Enter Your Number" required pattern="[0-9]{11,}" title="Use only numbers">
+                            <input type="tel" class="form-control" id="phoneNumber" placeholder="Enter Your Number" required pattern="[0-9]{11,}">
+                            <div class="invalid-feedback">
+                                Please enter a valid phone number (at least 11 digits).
+                            </div>
                         </div>
                         <div class="col-12">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter Your Email" required pattern="[^@]+@[^@]+\.[a-zA-Z]{2,}" title="Use a valid email format">
+                            <input type="email" class="form-control" id="email" placeholder="Enter Your Email" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid email address.
+                            </div>
                         </div>
                         <div class="col-12">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="Enter Your Password" required pattern="[A-Za-z0-9]{8,}" title="Password should be alphanumeric and at least 8 characters long">
+                            <input type="password" class="form-control" id="password" placeholder="Enter Your Password" required minlength="8">
+                            <div class="invalid-feedback">
+                                Password must be at least 8 characters long.
+                            </div>
                         </div>
                         <div class="col-12">
                             <label for="address" class="form-label">Address</label>
                             <input type="text" class="form-control" id="address" placeholder="Enter Your Address" required>
+                            <div class="invalid-feedback">
+                                Please enter your address.
+                            </div>
                         </div>
                         <div class="col-md-6">
                             <label style="color: white;" for="city" class="form-label">City</label>
                             <input placeholder="Enter Your City Name" type="text" class="form-control" id="city" required>
+                            <div class="invalid-feedback">
+                                Please enter your city.
+                            </div>
                         </div>
                         <div class="col-md-4">
                             <label style="color: white;" for="state" class="form-label">State</label>
-                            <select id="state" class="form-select">
-                                <option selected>PUNJAB</option>
+                            <select id="state" class="form-select" required>
+                                <option value="" selected disabled>Select State</option>
+                                <option>PUNJAB</option>
                                 <option>SINDH</option>
                                 <option>KPK</option>
                                 <option>GILGIT BALTISTAN</option>
                             </select>
+                            <div class="invalid-feedback">
+                                Please select your state.
+                            </div>
                         </div>
                         <div class="col-md-2">
                             <label style="color: white;" for="zip" class="form-label">Zip</label>
-                            <input placeholder="Code" type="text" class="form-control" id="zip" required>
+                            <input placeholder="Code" type="text" class="form-control" id="zip" required pattern="[0-9]{5}">
+                            <div class="invalid-feedback">
+                                Please enter a valid 5-digit zip code.
+                            </div>
                         </div>
                         <div class="col-12">
                             <div class="form-check">
@@ -227,6 +288,9 @@
                                 <label style="color: white;" class="form-check-label" for="gridCheck">
                                     Agree to terms and conditions
                                 </label>
+                                <div class="invalid-feedback">
+                                    You must agree to the terms.
+                                </div>
                             </div>
                         </div>
                         <div class="col-12 btn-lg d-grid gap-2">
@@ -275,28 +339,96 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <hr style="color: gold;">
-        <div class="container text-center">
-            <div class="social-icons mb-3">
-                <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.google.com/" target="_blank"><i class="fab fa-google"></i></a>
-                <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
-            </div>
-            <p class="mb-0">© 2025 Copyright: Project.com</p>
-        </div>
-    </footer>
-
+   <!-- FOOTER START -->
+<footer class="footer" style="background-color: red;">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-md-4 text-center text-md-start mb-4 mb-md-0">
+        <img src="IMAGES/LOGO.png" alt="Logo" height="80px">
+        <p class="mt-3" style="font-size: 0.9rem;">Delicious food made with passion and tradition.</p>
+      </div>
+      
+      <div class="col-md-4 text-center mb-4 mb-md-0">
+        <h5 class="mb-4" style="color: #ffc107;">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+          <li class="mb-2"><a href="about.html" class="text-white text-decoration-none">About Us</a></li>
+          <li class="mb-2"><a href="gallery.html" class="text-white text-decoration-none">Gallery</a></li>
+          <li class="mb-2"><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+      
+     <div class="col-md-4 text-center text-md-end">
+  <h5 class="mb-4" style="color: #ffc107;">Connect With Us</h5>
+  <div class="contact-info">
+    <p class="mb-3">
+      <i class="fas fa-phone me-2 text-white"></i> 
+      <a href="tel:+1234567890" class="text-white text-decoration-none">+123 456 7890</a>
+    </p>
+    <p class="mb-4">
+      <i class="fas fa-envelope me-2 text-white"></i> 
+      <a href="mailto:info@easyeat.com" class="text-white text-decoration-none">info@easyeat.com</a>
+    </p>
+  </div>
+  <!-- Social icons code here -->
+</div>
+    
+    <hr class="my-4" style="border-color: black;">
+    
+    <div class="row">
+      <div class="col-12 text-center">
+        <p class="mb-0" style="font-size: 0.8rem;">
+          &copy; 2025 easyeat.com | All Rights Reserved | 
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- FOOTER END -->
 
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission
-            document.getElementById('thankYouMessage').style.display = 'block'; // Show thank you message
-            this.reset(); // Reset the form
-        });
+        // Form validation
+        (function() {
+            'use strict';
+            
+            // Fetch the form element
+            const form = document.getElementById('contactForm');
+            const thankYouMessage = document.getElementById('thankYouMessage');
+            
+            // Form submission handler
+            form.addEventListener('submit', function(event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    event.preventDefault();
+                    // Show thank you message
+                    thankYouMessage.style.display = 'block';
+                    // Hide form
+                    form.style.display = 'none';
+                    // Reset form after 5 seconds
+                    setTimeout(function() {
+                        form.reset();
+                        form.classList.remove('was-validated');
+                        form.style.display = 'block';
+                        thankYouMessage.style.display = 'none';
+                    }, 5000);
+                }
+                
+                form.classList.add('was-validated');
+            }, false);
+            
+            // Phone number validation
+            document.getElementById('phoneNumber').addEventListener('input', function() {
+                this.value = this.value.replace(/[^0-9]/g, '');
+            });
+            
+            // Zip code validation
+            document.getElementById('zip').addEventListener('input', function() {
+                this.value = this.value.replace(/[^0-9]/g, '').substring(0, 5);
+            });
+            
+        })();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
