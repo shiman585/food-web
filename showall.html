@@ -56,6 +56,63 @@
             color: var(--accent) !important;
             text-transform: uppercase;
         }
+        
+        /* Custom navbar toggler styles */
+        .navbar-toggler {
+            border: none;
+            padding: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+        
+        .navbar-toggler.collapsed {
+            background-color: transparent;
+        }
+        
+        .navbar-toggler:not(.collapsed) {
+            background-color: red !important;
+        }
+        
+        /* Offcanvas menu styles */
+        .offcanvas {
+            background-color: black;
+            color: white;
+        }
+        
+        .offcanvas-header {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .offcanvas-body .nav-link {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Mobile menu buttons */
+        .mobile-menu-buttons {
+            display: none;
+            padding: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 1rem;
+        }
+        
+        .mobile-menu-buttons .btn {
+            width: 100%;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 991.98px) {
+            .desktop-buttons {
+                display: none !important;
+            }
+            .mobile-menu-buttons {
+                display: block;
+            }
+        }
+        
         /* NAVBAR END */
         
         /* CARD STYLING */
@@ -90,7 +147,7 @@
         .btns {
             background-color: black;
             color: white;
-            height: 40px;
+            height: 43px;
             width: 70px;
             border: 1px solid white;
             border-radius: 10px;
@@ -149,11 +206,12 @@
             height: 100vh;
             background-color: black;
             box-shadow: -5px 0 15px rgba(0,0,0,0.2);
-            z-index: 1000;
+            z-index: 1050; /* Higher than navbar */
             overflow-y: auto;
             padding: 20px;
             transition: transform 0.3s ease;
             color: white;
+            transform: translateX(100%);
         }
         .cart-modal.active {
             display: block;
@@ -206,11 +264,11 @@
             color: white;
         }
         .quantity-btn {
-            width: 10px;
-            height: 10px;
+            width: 25px;
+            height: 25px;
             background-color: var(--primary);
             color: white;
-            border: none;
+            border: 1px solid white;
             border-radius: 5px;
             cursor: pointer;
             display: flex;
@@ -262,55 +320,53 @@
             color: white;
         }
         
-          /* FOOTER START */
-.footer {
-background-color: red;
-  color: white;
-  position: relative;
-  top: 100px;
-  overflow: hidden;
- 
-}
+        /* FOOTER START */
+        .footer {
+            background-color: red;
+            color: white;
+            position: relative;
+            top: 100px;
+            overflow: hidden;
+        }
 
-.footer::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
- background-color: red;
-}
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background-color: red;
+        }
 
-.footer a {
-  color: white;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
+        .footer a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
 
-.footer a:hover {
-  color: #ffc107;
-  text-decoration: underline;
-}
+        .footer a:hover {
+            color: #ffc107;
+            text-decoration: underline;
+        }
 
-.social-icons a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background-color: red;
-  border-radius: 50%;
-  transition: all 0.3s ease;
-}
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: red;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
 
-.social-icons a:hover {
-  background-color: #ffc107;
-  color: red !important;
-  transform: translateY(-3px);
-}
-
-/* FOOTER END */
+        .social-icons a:hover {
+            background-color: #ffc107;
+            color: red !important;
+            transform: translateY(-3px);
+        }
+        /* FOOTER END */
         
         /* Notification */
         .notification {
@@ -364,6 +420,19 @@ background-color: red;
                 font-size: 0.9rem;
                 padding: 6px 10px;
             }
+            
+            /* Adjust offcanvas for mobile */
+            .offcanvas {
+                width: 75% !important;
+            }
+            
+            /* Full width cart on mobile */
+            @media (max-width: 450px) {
+                .cart-modal {
+                    width: 100%;
+                    max-width: 100%;
+                }
+            }
         }
     </style>
 </head>
@@ -374,7 +443,7 @@ background-color: red;
             <div style="padding-right: 50px;" class="img">
                 <img src="IMAGES/LOGO.png" alt="Logo" height="60px">
             </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -388,15 +457,44 @@ background-color: red;
                         <a class="nav-link" href="showall.html">Show All</a>
                     </li>
                 </ul>
-                <a href="login.html"><button class="login" class="btns btn-outline-light m-2">Login</button></a>
-                <!-- Cart Icon -->
-                <div class="cart-icon" id="cartIcon">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count" id="cartCount">0</span>
+                <div class="desktop-buttons d-flex align-items-center">
+                    <a href="login.html"><button class="login" class="btns btn-outline-light m-2">Login</button></a>
+                    <!-- Cart Icon -->
+                    <div class="cart-icon" id="cartIcon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </div>
                 </div>
             </div>
         </div>
     </nav>
+    
+    <!-- Offcanvas Sidebar Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="showall.html">Show All</a></li>
+            </ul>
+            
+            <!-- Mobile Menu Buttons -->
+            <div class="mobile-menu-buttons">
+                <a href="login.html"><button class="login btn">Login</button></a>
+                <button class="btn" id="mobileCartButton">
+                    <i class="fas fa-shopping-cart me-2"></i> Cart 
+                    <span class="badge bg-warning text-dark ms-2" id="mobileCartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </div>
     <!-- Navbar End -->
 
     <!-- Cards Data Start -->
@@ -405,9 +503,9 @@ background-color: red;
         <div class="row">
             <div class="col-12">
                 <h1 id="pizzaHeading" style="color: white; font-weight: bold; text-transform: uppercase; font-size: 1.7rem; font-family: system-ui;" data-aos="fade-right" data-aos-once="false">
-  Pizza
-  <span style="display:block; width:10%; height:3px; background-color:#d0021b; margin-top:5px;"></span>
-</h1>
+                    Pizza
+                    <span style="display:block; width:10%; height:3px; background-color:#d0021b; margin-top:5px;"></span>
+                </h1>
             </div>
         </div>
         <div class="row" id="section1">
@@ -418,9 +516,9 @@ background-color: red;
         <div class="row">
             <div class="col-12">
                 <h1 id="burgerHeading" style="color: white; font-weight: bold; text-transform: uppercase; font-size: 1.7rem; font-family: system-ui;" data-aos="fade-right" data-aos-once="false">
-  burger
-  <span style="display:block; width:10%; height:3px; background-color:#d0021b; margin-top:5px;"></span>
-</h1>
+                    Burger
+                    <span style="display:block; width:10%; height:3px; background-color:#d0021b; margin-top:5px;"></span>
+                </h1>
             </div>
         </div>
         <div class="row" id="section2">
@@ -431,9 +529,9 @@ background-color: red;
         <div class="row">
             <div class="col-12">
                 <h1 id="fish&saladHeading" style="color: white; font-weight: bold; text-transform: uppercase; font-size: 1.7rem; font-family: system-ui;" data-aos="fade-right" data-aos-once="false">
-  fish & salad
-  <span style="display:block; width:10%; height:3px; background-color:#d0021b; margin-top:5px;"></span>
-</h1>
+                    Fish & Salad
+                    <span style="display:block; width:10%; height:3px; background-color:#d0021b; margin-top:5px;"></span>
+                </h1>
             </div>
         </div>
         <div class="row" id="section3">
@@ -443,10 +541,10 @@ background-color: red;
         <!-- Section 4 -->
         <div class="row">
             <div class="col-12">
-               <h1 id="dessertHeading" style="color: white; font-weight: bold; text-transform: uppercase; font-size: 1.7rem; font-family: system-ui;" data-aos="fade-right" data-aos-once="false">
-  dessert
-  <span style="display:block; width:10%; height:3px; background-color:#d0021b; margin-top:5px;"></span>
-</h1>
+                <h1 id="dessertHeading" style="color: white; font-weight: bold; text-transform: uppercase; font-size: 1.7rem; font-family: system-ui;" data-aos="fade-right" data-aos-once="false">
+                    Dessert
+                    <span style="display:block; width:10%; height:3px; background-color:#d0021b; margin-top:5px;"></span>
+                </h1>
             </div>
         </div>
         <div class="row" id="section4">
@@ -475,51 +573,51 @@ background-color: red;
     <div class="notification" id="notification">Item added to cart!</div>
 
     <!-- FOOTER START -->
-<footer class="footer" style="background-color: red;">
-  <div class="container py-5">
-    <div class="row">
-      <div class="col-md-4 text-center text-md-start mb-4 mb-md-0">
-        <img src="IMAGES/LOGO.png" alt="Logo" height="80px">
-        <p class="mt-3" style="font-size: 0.9rem;">Delicious food made with passion and tradition.</p>
-      </div>
-      
-      <div class="col-md-4 text-center mb-4 mb-md-0">
-        <h5 class="mb-4" style="color: #ffc107;">Quick Links</h5>
-        <ul class="list-unstyled">
-          <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Home</a></li>
-          <li class="mb-2"><a href="about.html" class="text-white text-decoration-none">About Us</a></li>
-          <li class="mb-2"><a href="gallery.html" class="text-white text-decoration-none">Gallery</a></li>
-          <li class="mb-2"><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
-        </ul>
-      </div>
-      
-     <div class="col-md-4 text-center text-md-end">
-  <h5 class="mb-4" style="color: #ffc107;">Connect With Us</h5>
-  <div class="contact-info">
-    <p class="mb-3">
-      <i class="fas fa-phone me-2 text-white"></i> 
-      <a href="tel:+1234567890" class="text-white text-decoration-none">+123 456 7890</a>
-    </p>
-    <p class="mb-4">
-      <i class="fas fa-envelope me-2 text-white"></i> 
-      <a href="mailto:info@easyeat.com" class="text-white text-decoration-none">info@easyeat.com</a>
-    </p>
-  </div>
-  <!-- Social icons code here -->
-</div>
-    
-    <hr class="my-4" style="border-color: black;">
-    
-    <div class="row">
-      <div class="col-12 text-center">
-        <p class="mb-0" style="font-size: 0.8rem;">
-          &copy; 2025 easyeat.com | All Rights Reserved | 
-        </p>
-      </div>
-    </div>
-  </div>
-</footer>
-<!-- FOOTER END -->
+    <footer class="footer" style="background-color: red;">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-md-4 text-center text-md-start mb-4 mb-md-0">
+                    <img src="IMAGES/LOGO.png" alt="Logo" height="80px">
+                    <p class="mt-3" style="font-size: 0.9rem;">Delicious food made with passion and tradition.</p>
+                </div>
+                
+                <div class="col-md-4 text-center mb-4 mb-md-0">
+                    <h5 class="mb-4" style="color: #ffc107;">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="gallery.html" class="text-white text-decoration-none">Gallery</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-4 text-center text-md-end">
+                    <h5 class="mb-4" style="color: #ffc107;">Connect With Us</h5>
+                    <div class="contact-info">
+                        <p class="mb-3">
+                            <i class="fas fa-phone me-2 text-white"></i> 
+                            <a href="tel:+1234567890" class="text-white text-decoration-none">+123 456 7890</a>
+                        </p>
+                        <p class="mb-4">
+                            <i class="fas fa-envelope me-2 text-white"></i> 
+                            <a href="mailto:info@easyeat.com" class="text-white text-decoration-none">info@easyeat.com</a>
+                        </p>
+                    </div>
+                </div>
+            
+                <hr class="my-4" style="border-color: black;">
+                
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p class="mb-0" style="font-size: 0.8rem;">
+                            &copy; 2025 easyeat.com | All Rights Reserved | 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER END -->
  
 
     <script>
@@ -568,6 +666,7 @@ background-color: red;
         const closeCart = document.getElementById('closeCart');
         const cartItems = document.getElementById('cartItems');
         const cartCount = document.getElementById('cartCount');
+        const mobileCartCount = document.getElementById('mobileCartCount');
         const cartTotal = document.getElementById('cartTotal');
         const notification = document.getElementById('notification');
 
@@ -579,10 +678,76 @@ background-color: red;
             AOS.init({
                 duration: 1000,
                 easing: 'ease-in-out',
-                once: false, // Changed to false to make animations repeat
-                mirror: true // Added to make animations play when scrolling back up
+                once: false,
+                mirror: true
             });
+            
+            // Add event listeners after DOM is loaded
+            setupEventListeners();
         });
+
+        function setupEventListeners() {
+            // Cart icon click
+            if (cartIcon) {
+                cartIcon.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    toggleCart();
+                });
+            }
+            
+            // Mobile cart button click
+            const mobileCartButton = document.getElementById('mobileCartButton');
+            if (mobileCartButton) {
+                mobileCartButton.addEventListener('click', function(e) {
+                    e.stopPropagation(); // Prevent event bubbling
+                    
+                    // Close the offcanvas menu first
+                    const offcanvas = bootstrap.Offcanvas.getInstance(document.getElementById('offcanvasNavbar'));
+                    if (offcanvas) {
+                        offcanvas.hide();
+                    }
+                    
+                    // Open cart after a small delay to ensure menu is closed
+                    setTimeout(() => {
+                        cartModal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }, 100);
+                });
+            }
+            
+            // Close cart button
+            if (closeCart) {
+                closeCart.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    toggleCart();
+                });
+            }
+            
+            // Close cart when clicking outside
+            document.addEventListener('click', (e) => {
+                if (cartModal.classList.contains('active') && 
+                    !cartModal.contains(e.target) && 
+                    !e.target.closest('.cart-icon') && 
+                    !e.target.closest('#mobileCartButton')) {
+                    toggleCart();
+                }
+            });
+            
+            // Prevent cart modal from closing when clicking inside it
+            cartModal.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        }
+
+        function toggleCart() {
+            cartModal.classList.toggle('active');
+            // Prevent scrolling when cart is open
+            if (cartModal.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
 
         function initCart() {
             const saved = localStorage.getItem('cart');
@@ -612,18 +777,27 @@ background-color: red;
                                 <div class="card-body">
                                     <h5 class="card-title">${product.title}</h5>
                                     <p class="card-text">PRICE $${product.price}</p>
-                                    <button class="btn" onclick="addToCart(${productIndex})">Add To Cart</button>
+                                    <button class="btn add-to-cart" data-id="${productIndex}">Add To Cart</button>
                                 </div>
                             </div>
                         </div>
                     `;
                 });
             }
+            
+            // Add event listeners to all add-to-cart buttons
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    addToCart(productId);
+                });
+            });
         }
 
         function addToCart(index) {
             const product = products[index];
             const existing = cart.find(item => item.id === index);
+            
             if (existing) {
                 existing.quantity += 1;
             } else {
@@ -635,6 +809,7 @@ background-color: red;
                     quantity: 1 
                 });
             }
+            
             saveCart();
             updateCartUI();
             showNotification(`✅ ${product.title} added to cart`);
@@ -647,6 +822,7 @@ background-color: red;
         function updateCartUI() {
             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
             cartCount.textContent = totalItems;
+            mobileCartCount.textContent = totalItems;
 
             cartItems.innerHTML = '';
             if (cart.length === 0) {
@@ -703,24 +879,16 @@ background-color: red;
             cart = cart.filter(item => item.id !== id);
             saveCart();
             updateCartUI();
+            showNotification('Item removed from cart');
         }
 
         function showNotification(message) {
             notification.textContent = message;
             notification.style.display = 'block';
-            setTimeout(() => notification.style.display = 'none', 1000);
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
         }
-
-        // Event listeners
-        cartIcon.addEventListener('click', () => cartModal.classList.add('active'));
-        closeCart.addEventListener('click', () => cartModal.classList.remove('active'));
-
-        // Close cart when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!cartModal.contains(e.target) && !cartIcon.contains(e.target) && !e.target.closest('.quantity-btn') && !e.target.closest('.remove-item')) {
-                cartModal.classList.remove('active');
-            }
-        });
 
         // Make functions available globally
         window.addToCart = addToCart;

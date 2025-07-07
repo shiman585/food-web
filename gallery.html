@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GALLERY</title>
   <link rel="shortcut icon" href="IMAGES/LOGO.png" type="image/x-icon" />
-  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -26,23 +26,66 @@
       color: #ffc107 !important;
       text-transform: uppercase;
     }
-    /* NAVBAR END */
-
-    /* LOGIN BUTTON START */
-    .login {
+    
+    /* Custom navbar toggler styles */
+    .navbar-toggler {
+      border: none;
+      padding: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+    
+    .navbar-toggler.collapsed {
+      background-color: transparent;
+    }
+    
+    .navbar-toggler:not(.collapsed) {
+      background-color: red !important;
+    }
+    
+    /* Offcanvas menu styles */
+    .offcanvas {
       background-color: black;
       color: white;
-      height: 43px;
-      width: 70px;
-      border: 1px solid white;
-      border-radius: 5px;
+      width: 250px !important;
     }
-    .login:hover {
-      transition: 0.5s;
-      background-color: #ffc107;
-      color: white;
+    
+    .offcanvas-header {
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
-    /* LOGIN BUTTON END */
+    
+    .offcanvas-body .nav-link {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    /* Mobile menu buttons */
+    .mobile-menu-buttons {
+      display: none;
+      padding: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 1rem;
+    }
+    
+    .mobile-menu-buttons .btn {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+    
+    @media (max-width: 991.98px) {
+      .desktop-buttons {
+        display: none !important;
+      }
+      .mobile-menu-buttons {
+        display: block;
+      }
+    }
+    /* NAVBAR END */
+
+    
 
     /* GALLERY IMAGE START */
     .gallery-heading {
@@ -169,38 +212,29 @@
       <button
         class="navbar-toggler"
         type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar"
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="a nav-item">
-            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-          </li>
-          <li class="a nav-item">
-            <a class="nav-link text-white" href="about.html">About Us</a>
-          </li>
-          <li class="a nav-item">
-            <a class="nav-link text-white" href="contact.html">Contact Us</a>
-          </li>
-          <li class="a nav-item">
-            <a class="nav-link text-white" href="feedback.html">Feedback</a>
-          </li>
-          <li class="a nav-item">
-            <a class="nav-link text-white" href="gallery.html">Gallery</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="showall.html">Show All</a>
-          </li>
-        </ul>
-        <a href="login.html"
-          ><button class="login btn btn-outline-light m-2">Login</button></a
-        >
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+            <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="showall.html">Show All</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </nav>
@@ -307,6 +341,5 @@
   <!-- FOOTER END -->
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
