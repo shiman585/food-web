@@ -17,20 +17,7 @@
     <!-- Add AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-         /* Custom scrollbar styles */
-        ::-webkit-scrollbar {
-            width: 5px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #000;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #ffc107;
-            border-radius: 5px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #ffd700;
-        }
+         
         /* === GLOBAL STYLES === */
         * {
             margin: 0;
@@ -51,7 +38,7 @@
 
         /* Custom scrollbar styles */
         ::-webkit-scrollbar {
-            width: 10px;
+            width: 5px;
         }
         ::-webkit-scrollbar-track {
             background: #000;
@@ -708,7 +695,14 @@
                 display: none !important;
             }
         }
-    </style>
+    
+#cartItems {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
+
+</style>
 </head>
 <body style="background-color: black;">
     <!-- Keywords for SEO: online fast food, fast food delivery, order fast food, best fast food, quick food delivery -->
